@@ -388,6 +388,10 @@ namespace data
 			return;
 		}	
 
+		// All peers hashs in buffer?
+		if(msg->GetPayloadLength() < (size_t) (33 + num * IDENTITY_HASH_SIZE))
+			return;
+
 		// try responses
 		if (num > NETDB_MAX_NUM_SEARCH_REPLY_PEER_HASHES)
 		{
